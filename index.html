@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自我介绍</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        #scrolling-marquee {
+            width: 300px;
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            margin-left: 683px;
+        }
+
+        #scrolling-marquee p {
+            position: absolute;
+            white-space: nowrap;
+            margin: 0;
+            animation: marquee 10s linear infinite;
+            color: rgb(201, 132, 143);
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="w">
+        <ul class="ul">
+            <li style="background-color: rgb(126, 65, 75);"><a href="./index.html">自我介绍</a></li>
+   
+        </ul>
+    </header>
+    <div class="w box">
+        <img src="./images/1.jpg" alt="">
+    </div>
+    
+
+    <div class="w container">
+        <span></span>
+        <h2>
+            个人信息
+        </h2>
+    </div>
+    <div class="w container1 clearfix">
+        <div class="left">
+            <img src="./images/2.jpg" alt="">
+        </div>
+        <div class="right">
+            <p style="margin-top: 0;">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：李秀林</p>
+            <p>班&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级：计科215班</p>
+            <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：21101100529</p>
+            <p>联系方式：17345343538</p>
+            <p>人生格言：没有一朵花从一开始就是花。</p>
+            <p style="width: 600px;font-size: 14px;color: #666;margin-top: 0px;">
+                在千千万万个选择里，我永远选择去做那些我认为值得的事，我可能干得很漂亮，也肯搞得一塌糊涂，但是没关系，重要的是我为之努力过。每个人的心里都藏着一个了不起的自己，只要不颓废、不消极，一直悄悄酝酿着乐观，保持着豁达，坚持着善良，始终朝着梦想前行，永远在路上，就没有到达不了的远方。
+            </p>
+        </div>
+    </div>
+    <div class="w container">
+        <span></span>
+        <h2>
+            个人介绍
+        </h2>
+    </div>
+    <div class="box1 w">
+        <p>我性格偏内向，有点社恐，爱好非常广泛，差不多就是三天一个小兴趣，五天一个大兴趣。喜欢烹饪、烘焙，满足自己对美食和甜品的热爱；喜欢阅读、旅行、听歌、种植，这些能让我的情绪安定下来；喜欢用相机记录下生活的点点滴滴，是生活中的小美好；在闲暇时间也会看综艺节目和电影，做做手工，喜欢diy一些东西。</p>
+    </div>
+    <div class="w container">
+        <span></span>
+        <h2>
+            我的相册
+        </h2>
+    </div>
+    <div class="show w">
+        <img src="./images/11.jpg" alt="">
+        <img src="./images/22.jpg" alt="">
+        <img src="./images/33.jpg" alt="">
+        <img src="./images/44.jpg" alt="">
+
+    </div>
+    <h1 id="time" style="color: rgb(201, 132, 143); text-align: center;margin-top: 20px;"></h1>
+    <div id="scrolling-marquee">
+        <p>这是我的个人介绍</p>
+    </div>
+
+    <script>
+        function updateTime() {
+            var currentTime = new Date();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var seconds = currentTime.getSeconds();
+
+            // 在一位数前面添加零以保持时间格式一致
+            hours = (hours < 10 ? "0" : "") + hours;
+            minutes = (minutes < 10 ? "0" : "") + minutes;
+            seconds = (seconds < 10 ? "0" : "") + seconds;
+
+            var formattedTime = hours + ":" + minutes + ":" + seconds;
+            document.getElementById("time").innerHTML = formattedTime;
+        }
+
+        // 初始加载时间
+        updateTime();
+
+        // 每秒钟更新一次时间
+        setInterval(updateTime, 1000);
+    </script>
+    <script>
+        // 获取滚动字幕的容器和内容元素
+        const marqueeContainer = document.getElementById('scrolling-marquee');
+        const marqueeContent = marqueeContainer.querySelector('p');
+
+        // 根据内容长度设置容器宽度
+        marqueeContainer.style.width = marqueeContent.offsetWidth + 'px';
+
+        // 当窗口大小改变时重新计算容器宽度
+        window.addEventListener('resize', () => {
+            marqueeContainer.style.width = marqueeContent.offsetWidth + 'px';
+        });
+    </script>
+
+</body>
+
+</html>
